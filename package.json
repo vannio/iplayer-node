@@ -1,0 +1,26 @@
+{
+  "name": "iplayer-list",
+  "version": "1.0.0",
+  "description": "Coding exercise for a tech test",
+  "main": "app/server.js",
+  "scripts": {
+    "test": "mocha --recursive"
+  },
+  "keywords": [
+    "bbc",
+    "iplayer",
+    "node",
+    "express"
+  ],
+  "author": "vannio",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3",
+    "sinon": "^1.17.4",
+    "zombie": "^4.2.1"
+  }
+}
