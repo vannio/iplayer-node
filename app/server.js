@@ -1,17 +1,24 @@
 var express = require('express');
 var app = express();
-var nunjucks = require('nunjucks');
 var port = process.env.NODE_ENV === 'test' ? 3000 : 8080;
+var nunjucks = require('nunjucks');
 
-app.set('view engine', 'nunjucks');
-nunjucks.configure('./app/views', {
+var env = nunjucks.configure('./app/views', {
   watch: true,
   express: app
 });
 
+env.addGlobal('baseUrl', 'https://ibl.api.bbci.co.uk/');
+env.addGlobal('letters', 'abcdefghijklmnopqrstuvwxyz012345679'.split(''));
+
+app.set('view engine', 'njk');
+
 app.get('/', function (req, res) {
-  var letters = 'abcdefghijklmnopqrstuvwxyz012345679'.split('');
-  res.render('index', { letters: letters })
+  res.render('index')
+});
+
+app.get('/programmes/:letter', function(req, res) {
+  res.render('programmes/index', { letter: req.params.letter });
 });
 
 app.listen(port, function () {
