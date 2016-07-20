@@ -4,7 +4,7 @@
   "description": "Coding exercise for a tech test",
   "main": "app/server.js",
   "scripts": {
-    "test": "mocha --recursive"
+    "test": "./node_modules/.bin/_mocha --require 'test/testHelpers.js' --recursive"
   },
   "keywords": [
     "bbc",
