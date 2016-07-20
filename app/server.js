@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var nunjucks = require('nunjucks');
-var port = 3000;
+var port = process.env.NODE_ENV === 'test' ? 3000 : 8080;
 
 app.set('view engine', 'nunjucks');
 nunjucks.configure('./app/views', {

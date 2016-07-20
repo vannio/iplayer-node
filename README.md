@@ -16,7 +16,7 @@ Please make sure Node (and npm) is installed before you continue.
 
 #### Serving
 1. Run `npm start` to start the server
-1. Visit [http://localhost:3000](http://localhost:3000) to see the app in action
+1. Visit [http://localhost:8080](http://localhost:8080) to see the app in action
 
 ---
 
