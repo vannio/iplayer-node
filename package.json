@@ -4,7 +4,8 @@
   "description": "Coding exercise for a tech test",
   "main": "app/server.js",
   "scripts": {
-    "test": "./node_modules/.bin/_mocha --require 'test/testHelpers.js' --recursive"
+    "test": "./node_modules/.bin/_mocha --require 'test/testHelpers.js' --recursive",
+    "start": "node app/server"
   },
   "keywords": [
     "bbc",
@@ -15,7 +16,8 @@
   "author": "vannio",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "nunjucks": "^2.4.2"
   },
   "devDependencies": {
     "chai": "^3.5.0",
