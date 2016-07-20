@@ -1,0 +1,9 @@
+<nav>
+  <ul>
+  {% for letter in letters %}
+    <li>
+      <a href="/{{ letter }}">{{ letter }}</a>
+    </li>
+  {% endfor %}
+  </ul>
+</nav>

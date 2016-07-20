@@ -11,8 +11,9 @@ describe('Navigation', function(){
   });
 
   it('should have an alphabetical list of letters (a-z then 0-9)', function(){
-    expect(browser.text('nav ul li:first-child')).to.contain('a');
-    expect(browser.text('nav ul li:nth-child(26)')).to.contain('z');
-    expect(browser.text('nav ul li:last-child')).to.contain('9');
+    expect(browser.text('nav li:first-child')).to.contain('a');
+    expect(browser.text('nav li:nth-child(26)')).to.contain('z');
+    expect(browser.text('nav li:nth-child(27)')).to.contain('0');
+    expect(browser.text('nav li:last-child')).to.contain('9');
   });
 });
