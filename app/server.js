@@ -1,3 +1,4 @@
+var browserify = require('browserify-middleware');
 var express = require('express');
 var app = express();
 var port = process.env.NODE_ENV === 'test' ? 3000 : 8080;
@@ -8,10 +9,12 @@ var env = nunjucks.configure('./app/views', {
   express: app
 });
 
-env.addGlobal('baseUrl', 'https://ibl.api.bbci.co.uk/');
 env.addGlobal('letters', 'abcdefghijklmnopqrstuvwxyz012345679'.split(''));
 
 app.set('view engine', 'njk');
+
+//provide browserified versions of all the files in a directory
+app.use('/scripts/main.js', browserify(__dirname + '/scripts/main.js'));
 
 app.get('/', function (req, res) {
   res.render('index')
