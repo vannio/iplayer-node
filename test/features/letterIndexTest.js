@@ -1,3 +1,5 @@
+var app = require('../../app/server.js');
+
 describe('Letter index page', function(){
   var browser;
 
@@ -6,18 +8,19 @@ describe('Letter index page', function(){
     next();
   });
 
-  before(function(done){
-    browser.visit('/', function(){
-      browser.clickLink('a', done);
+  context('Clicking "A" in the navigation', function(){
+    before(function(done){
+      browser.visit('/', function(){
+        browser.clickLink('a', done);
+      });
     });
-  });
 
-  it('should show the letter "a" at the end of the title', function(){
-    expect(browser.text('h2')).to.match(/a$/);
-  });
+    it('should redirect to the correct path', function(){
+      expect(browser.url).to.match(/programmes\/a$/);
+    });
 
-  it('should show programmes beginning with "a"', function(){
-    expect(browser.text('#js-programmes-list li:first-child')).to.match(/^a/);
-    expect(browser.text('#js-programmes-list li:last-child')).to.match(/^a/);
+    it('should show the correct letter at the end of the title', function(){
+      expect(browser.text('h2')).to.match(/a$/);
+    });
   });
 });

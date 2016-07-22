@@ -1,4 +1,6 @@
-describe('Navigation', function(){
+var app = require('../../app/server.js');
+
+describe('Navigation display', function(){
   var browser;
 
   before(function(next){
