@@ -1,21 +1,24 @@
-var browserify = require('browserify-middleware');
-var express = require('express');
+var express = require('express'),
+    browserify = require('browserify-middleware'),
+    nunjucks = require('nunjucks');
 var app = express();
 var port = process.env.NODE_ENV === 'test' ? 3000 : 8080;
-var nunjucks = require('nunjucks');
 
+// Template rendering
 var env = nunjucks.configure('./app/views', {
   watch: true,
   express: app
 });
-
 env.addGlobal('letters', 'abcdefghijklmnopqrstuvwxyz012345679'.split(''));
-
 app.set('view engine', 'njk');
 
-//provide browserified versions of all the files in a directory
-app.use('/scripts/main.js', browserify(__dirname + '/scripts/main.js'));
+// Static file routing
+app.use(express.static('./app/public'));
 
+// Javascript file bundling
+app.use('/scripts/bundle.js', browserify(__dirname + '/models/main.js'));
+
+// Routes
 app.get('/', function (req, res) {
   res.render('index')
 });
@@ -24,6 +27,11 @@ app.get('/programmes/:letter', function(req, res) {
   res.render('programmes/index', { letter: req.params.letter });
 });
 
+// Listen for connections
 app.listen(port, function () {
-  console.log('Something should be happening on http://localhost:' + port);
+  console.log(
+    "----------------------------------------\
+    \n** Listening on http://localhost:" + port +
+    " **\n----------------------------------------\n"
+  );
 });
