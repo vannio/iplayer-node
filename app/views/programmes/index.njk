@@ -1,7 +1,7 @@
 {% extends 'layout.njk' %}
 
 {% block content %}
-  <h2>{{ letter | upper }}</h2>
+  <h2 class="programme-list__title">{{ letter | upper }}</h2>
 
   {% if data.count > 0 %}
     <ul id="programme-list" class="programme-list">
@@ -19,8 +19,14 @@
   {% endif %}
 
   {% if pages > 1 %}
-    {% for i in range(0, pages) %}
-    <a href="?page={{ i + 1 }}">{{ i + 1 }}</a>
-    {% endfor %}
+    <nav class="pagination">
+      <ol class="pagination-list">
+      {% for i in range(0, pages) %}
+        <li>
+          <a href="?page={{ i + 1 }}">{{ i + 1 }}</a>
+        </li>
+      {% endfor %}
+      </ol>
+    </nav>
   {% endif %}
 {% endblock %}

@@ -18,7 +18,7 @@ describe('Listing programmes', function(){
     });
 
     it('displays the correct letter at the end of the title', function(){
-      expect(browser.text('h2')).to.match(/[aA]$/);
+      expect(browser.text('.programme-list__title')).to.match(/[aA]$/);
     });
 
     it('displays 20 items or less in the list', function(){
