@@ -17,4 +17,10 @@
   {% else %}
     No programmes beginning with <strong>{{ letter }}</strong>.
   {% endif %}
+
+  {% if pages > 1 %}
+    {% for i in range(0, pages) %}
+    <a href="?page={{ i + 1 }}">{{ i + 1 }}</a>
+    {% endfor %}
+  {% endif %}
 {% endblock %}

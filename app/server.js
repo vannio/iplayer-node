@@ -39,17 +39,20 @@ app.get('/', function (req, res) {
 });
 
 app.get('/programmes/:letter', function(req, response) {
-  var letter = req.params.letter;
+  var letter = req.params.letter.toLowerCase(),
+      page = req.query.page ? '?page=' + req.query.page : '';
 
   var baseUrl = 'https://ibl.api.bbci.co.uk/ibl/v1/atoz/',
-      requestUrl = baseUrl + letter + '/programmes';
+      requestUrl = baseUrl + letter + '/programmes' + page;
 
   request(requestUrl, function(err, res, body) {
     var data = JSON.parse(body).atoz_programmes;
+    var pages = data.count > data.per_page ? Math.ceil(data.count / data.per_page) : 1;
 
     response.render('programmes/index', {
       letter: letter,
-      data: data
+      data: data,
+      pages: pages
     });
   });
 });
