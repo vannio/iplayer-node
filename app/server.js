@@ -56,7 +56,7 @@ app.get('/programmes/:letter', function(req, response) {
       var pages = data.count > data.per_page ? Math.ceil(data.count / data.per_page) : 1;
 
       response.render('programmes/index', {
-        letter: letter,
+        currentLetter: letter,
         data: data,
         pages: pages
       });

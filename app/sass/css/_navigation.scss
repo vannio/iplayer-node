@@ -1,5 +1,4 @@
 nav {
-
   ol {
     list-style: none;
     padding: 0;
@@ -7,7 +6,40 @@ nav {
     li {
       display: inline-block;
     }
+  }
+}
 
+.navigation {
+  .title a {
+    color: $pink;
   }
 
+  li a {
+    padding: 0.75rem 1rem;
+    display: block;
+    line-height: 1rem;
+  }
+
+  li {
+    background-color: $med-grey;
+    margin: 0.25rem 0;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $white;
+
+      a {
+        color: $med-grey;
+      }
+    }
+
+    &.selected {
+      background-color: $pink;
+
+      a {
+        color: $white;
+      }
+    }
+  }
 }

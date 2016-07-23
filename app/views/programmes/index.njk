@@ -1,7 +1,7 @@
 {% extends 'layout.njk' %}
 
 {% block content %}
-  <h2 class="programme-list__title">{{ letter | upper }}</h2>
+  <h2 class="programme-list__title">{{ currentLetter | upper }}</h2>
 
   {% if error %}
     <p>Error loading content: {{ error.code }}</p>
@@ -14,7 +14,7 @@
         {% endfor %}
       </ul>
     {% else %}
-      No programmes beginning with <strong>{{ letter }}</strong>.
+      No programmes beginning with <strong>{{ currentLetter }}</strong>.
     {% endif %}
 
     {% if pages > 1 %}

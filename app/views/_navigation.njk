@@ -2,11 +2,13 @@
 <nav class="navigation">
   <div class="wrapper">
     <h1 class="title"><a href="/">A-Z of TV Programmes</a></h1>
-    
+
     <ol class="navigation-list">
     {% for letter in letters %}
-      <li>
-        <a href="/programmes/{{ letter }}">{{ letter }}</a>
+      <li {% if currentLetter == letter %}class="selected"{% endif %}>
+        <a href="/programmes/{{ letter }}">
+          {{ letter }}
+        </a>
       </li>
     {% endfor %}
     </ol>
