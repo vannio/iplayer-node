@@ -1,6 +1,4 @@
-var app = require('../../app/server.js');
-
-describe('Letter index page', function(){
+describe('Listing programmes', function(){
   var browser;
 
   before(function(next){
@@ -16,15 +14,15 @@ describe('Letter index page', function(){
     });
 
     it('redirects to the correct path', function(){
-      expect(browser.url).to.match(/programmes\/a$/);
+      expect(browser.url).to.match(/programmes\/[aA]$/);
     });
 
     it('displays the correct letter at the end of the title', function(){
-      expect(browser.text('h2')).to.match(/a$/);
+      expect(browser.text('h2')).to.match(/[aA]$/);
     });
 
     it('displays 20 items or less in the list', function(){
-      expect(browser.queryAll('.programme-list__item').length).to.be.below(21);
+      expect(browser.queryAll('.programme-list__item')).to.have.length.below(21);
     });
 
   });
