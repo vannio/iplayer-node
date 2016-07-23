@@ -8,7 +8,7 @@ Please make sure Node (and npm) is installed before you continue.
 #### Set up
 1. Clone this repo
 1. `cd` into the correct working directory
-1. Run `npm install` to install the correct gems
+1. Run `npm install` to install the correct packages
 
 #### Testing
 1. Run `npm test` to run all the tests
