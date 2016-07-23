@@ -2,6 +2,7 @@ nav {
   ol {
     list-style: none;
     padding: 0;
+    margin: 0;
 
     li {
       display: inline-block;
@@ -10,19 +11,42 @@ nav {
 }
 
 .navigation {
-  .title a {
-    color: $pink;
+  background-color: $black;
+  padding: 1rem 0;
+
+  .title {
+    margin-top: 0;
+
+    a {
+      color: $pink;
+    }
+  }
+
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
   }
 
   li a {
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 0;
     display: block;
     line-height: 1rem;
   }
 
   li {
     background-color: $med-grey;
-    margin: 0.25rem 0;
+    margin: 0.2rem 0;
+    text-align: center;
+    flex-grow: 1;
+    min-width: 7%;
+
+    @media #{$medium-up} {
+      min-width: 3%;
+    }
+
+    &:last-child {
+      flex-grow: 2;
+    }
 
     &:hover,
     &:focus,
