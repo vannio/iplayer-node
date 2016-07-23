@@ -1,4 +1,4 @@
-describe('Navigation display', function(){
+describe('Navigation', function(){
   var browser;
 
   before(function(next){
