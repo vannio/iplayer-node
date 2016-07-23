@@ -3,30 +3,24 @@
 {% block content %}
   <h2 class="programme-list__title">{{ letter | upper }}</h2>
 
-  {% if data.count > 0 %}
-    <ul id="programme-list" class="programme-list">
-
-      {% for programme in data.elements %}
-        <li class="programme-list__item">
-          <strong>{{ programme.title }}</strong>
-          {{ programme.synopses.small }}
-        </li>
-      {% endfor %}
-
-    </ul>
+  {% if error %}
+    <p>Error loading content: {{ error.code }}</p>
   {% else %}
-    No programmes beginning with <strong>{{ letter }}</strong>.
+
+    {% if data.count > 0 %}
+      <ul id="programme-list" class="programme-list">
+        {% for programme in data.elements %}
+          {% include './_list-item.njk' %}
+        {% endfor %}
+      </ul>
+    {% else %}
+      No programmes beginning with <strong>{{ letter }}</strong>.
+    {% endif %}
+
+    {% if pages > 1 %}
+      {% include './_pagination.njk' %}
+    {% endif %}
+
   {% endif %}
 
-  {% if pages > 1 %}
-    <nav class="pagination">
-      <ol class="pagination-list">
-      {% for i in range(0, pages) %}
-        <li>
-          <a href="?page={{ i + 1 }}">{{ i + 1 }}</a>
-        </li>
-      {% endfor %}
-      </ol>
-    </nav>
-  {% endif %}
 {% endblock %}

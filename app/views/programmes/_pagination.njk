@@ -1,0 +1,9 @@
+<nav class="pagination">
+  <ol class="pagination-list">
+  {% for i in range(0, pages) %}
+    <li>
+      <a href="?page={{ i + 1 }}">{{ i + 1 }}</a>
+    </li>
+  {% endfor %}
+  </ol>
+</nav>

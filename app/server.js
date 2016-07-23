@@ -46,14 +46,21 @@ app.get('/programmes/:letter', function(req, response) {
       requestUrl = baseUrl + letter + '/programmes' + page;
 
   request(requestUrl, function(err, res, body) {
-    var data = JSON.parse(body).atoz_programmes;
-    var pages = data.count > data.per_page ? Math.ceil(data.count / data.per_page) : 1;
+    if (err) {
+      response.render('programmes/index', {
+        error: err
+      });
+    }
+    else {
+      var data = JSON.parse(body).atoz_programmes;
+      var pages = data.count > data.per_page ? Math.ceil(data.count / data.per_page) : 1;
 
-    response.render('programmes/index', {
-      letter: letter,
-      data: data,
-      pages: pages
-    });
+      response.render('programmes/index', {
+        letter: letter,
+        data: data,
+        pages: pages
+      });
+    }
   });
 });
 
