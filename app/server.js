@@ -18,8 +18,6 @@ var letters = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
 env.addGlobal('letters', letters);
 
-app.use(express.static(__dirname + '/public'));
-
 // app.use('/scripts/bundle.js', browserify(__dirname + '/models/main.js'));
 
 app.use(sass({
@@ -27,6 +25,8 @@ app.use(sass({
   dest: __dirname + '/public',
   outputStyle: 'compressed'
 }));
+
+app.use(express.static(__dirname + '/public'));
 
 app.use('/', require(__dirname + '/controllers/main'));
 app.use('/programmes', require(__dirname + '/controllers/programmes'));
