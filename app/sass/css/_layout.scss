@@ -1,0 +1,15 @@
+body {
+  background-color: $black;
+  margin: 0;
+}
+
+.main-content {
+  background-color: $dark-grey;
+  padding: 1rem 0;
+}
+
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}

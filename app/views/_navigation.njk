@@ -1,11 +1,14 @@
-<h1 class="title"><a href="/">A-Z of TV Programmes</a></h1>
 
 <nav class="navigation">
-  <ol class="navigation-list">
-  {% for letter in letters %}
-    <li>
-      <a href="/programmes/{{ letter }}">{{ letter }}</a>
-    </li>
-  {% endfor %}
-  </ol>
+  <div class="wrapper">
+    <h1 class="title"><a href="/">A-Z of TV Programmes</a></h1>
+    
+    <ol class="navigation-list">
+    {% for letter in letters %}
+      <li>
+        <a href="/programmes/{{ letter }}">{{ letter }}</a>
+      </li>
+    {% endfor %}
+    </ol>
+  </div>
 </nav>

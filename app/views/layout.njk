@@ -6,8 +6,12 @@
     <link rel="stylesheet" href="/css/main.css" type="text/css">
   </head>
   <body>
-    {% include '_navigation.njk' %}
-    {% block content %}
-    {% endblock %}
+    {% include "_navigation.njk" %}
+    <div class="main-content">
+      <div class="wrapper">
+      {% block content %}
+      {% endblock %}
+      </div>
+    </div>
   </body>
 </html>
