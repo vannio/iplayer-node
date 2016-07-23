@@ -1,11 +1,20 @@
 {% extends 'layout.njk' %}
 
 {% block content %}
-<h2>{{ letter }}</h2>
-<ul id="js-programme-list"></ul>
-{% endblock %}
+  <h2>{{ letter | upper }}</h2>
 
-{% block scripts %}
-<script src="/scripts/bundle.js" type="text/javascript"></script>
-<script type="text/javascript">init("{{ letter }}");</script>
+  {% if data.count > 0 %}
+    <ul id="programme-list" class="programme-list">
+
+      {% for programme in data.elements %}
+        <li class="programme-list__item">
+          <strong>{{ programme.title }}</strong>
+          {{ programme.synopses.small }}
+        </li>
+      {% endfor %}
+
+    </ul>
+  {% else %}
+    No programmes beginning with <strong>{{ letter }}</strong>.
+  {% endif %}
 {% endblock %}
