@@ -16,6 +16,7 @@ var letters = 'abcdefghijklmnopqrstuvwxyz'.split('');
     letters.push('0-9');
 
 env.addGlobal('letters', letters);
+env.addGlobal('siteTitle', 'A-Z of TV Programmes');
 
 app.use(sass({
   src: __dirname + '/sass',
