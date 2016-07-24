@@ -26,7 +26,12 @@ router.get('/:letter', function(req, res) {
         currentLetter: letter,
         currentPage: req.query.page,
         data: data,
-        pages: pages
+        pages: pages,
+        recipe: {
+          small: '192x108',
+          medium: '406x228',
+          large: '560x315'
+        }
       };
     }
 

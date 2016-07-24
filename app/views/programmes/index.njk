@@ -7,6 +7,10 @@
     <p>Error loading content: {{ error.code }}</p>
   {% else %}
 
+    {% if pages > 1 %}
+      {% include './_pagination.njk' %}
+    {% endif %}
+
     {% if data.count > 0 %}
       <ul id="programme-list" class="programme-list">
         {% for programme in data.elements %}

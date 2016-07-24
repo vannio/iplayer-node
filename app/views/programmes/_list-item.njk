@@ -1,4 +1,5 @@
 <li class="programme-list__item">
-  <strong>{{ programme.title }}</strong>
-  {{ programme.synopses.small }}
+  <h3>{{ programme.title }}</h3>
+  {% set imgUrl = programme.images.standard | replace( r/{recipe}/, recipe.small ) %}
+  <img src="{{ imgUrl }}" alt="{{ programme.title }}">
 </li>
