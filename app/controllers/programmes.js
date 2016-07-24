@@ -24,6 +24,7 @@ router.get('/:letter', function(req, res) {
 
       responseData = {
         currentLetter: letter,
+        currentPage: req.query.page,
         data: data,
         pages: pages
       };
