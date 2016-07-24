@@ -17,7 +17,12 @@ describe('Listing programmes', function(){
 
     it('displays 20 items or less in the list', function(){
       expect(browser.queryAll('.programme-list__item')).to.have.length.below(21);
-    }); 
+    });
+
+    it('each listing has an image', function(){
+      expect(browser.query('.programme-list__item:first-child img')).to.exist;
+      expect(browser.query('.programme-list__item:last-child img')).to.exist;
+    });
   });
 
 });
