@@ -1,9 +1,9 @@
 # Alphabet Listing
-Coding exercise for a tech test
+Coding exercise.
 
 ## Getting Started
 #### Prerequisites
-Please make sure Node (and npm) is installed before you continue.
+Please make sure [Node](https://nodejs.org/en/) (and npm) is installed before you continue.
 
 #### Set up
 1. Clone this repo
@@ -17,6 +17,9 @@ Please make sure Node (and npm) is installed before you continue.
 #### Serving
 1. Run `npm start` to start the server
 1. Visit [http://localhost:8080](http://localhost:8080) to see the app in action
+
+## Why did you do it like that?!
+I explain it all [here](docs/explanation.md). Feel free to contact me for further clarification.
 
 ---
 
