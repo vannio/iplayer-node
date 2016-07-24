@@ -1,5 +1,4 @@
 var express = require('express'),
-    browserify = require('browserify-middleware'),
     sass = require('node-sass-middleware'),
     nunjucks = require('nunjucks');
 
@@ -17,8 +16,6 @@ var letters = 'abcdefghijklmnopqrstuvwxyz'.split('');
     letters.push('0-9');
 
 env.addGlobal('letters', letters);
-
-// app.use('/scripts/bundle.js', browserify(__dirname + '/models/main.js'));
 
 app.use(sass({
   src: __dirname + '/sass',

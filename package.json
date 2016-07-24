@@ -1,7 +1,7 @@
 {
   "name": "iplayer-list",
   "version": "1.0.0",
-  "description": "Coding exercise for a tech test",
+  "description": "Coding exercise",
   "main": "app/server.js",
   "scripts": {
     "test": "NODE_ENV=test ./node_modules/.bin/_mocha --require 'test/testHelpers.js' --recursive",
@@ -14,9 +14,9 @@
     "express"
   ],
   "author": "vannio",
+  "repository": "https://github.com/vannio/iplayer-node",
   "license": "ISC",
   "dependencies": {
-    "browserify-middleware": "^7.0.0",
     "express": "^4.14.0",
     "node-sass-middleware": "^0.9.8",
     "nunjucks": "^2.4.2",
