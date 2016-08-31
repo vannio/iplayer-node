@@ -24,7 +24,5 @@ describe('Routing URLs', function(){
     it('takes user to the list of "C" programmes', function(){
       expect(browser.url).to.match(/programmes\/[cC]$/);
     });
-
   });
-
 });
