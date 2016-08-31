@@ -12,8 +12,7 @@ var env = nunjucks.configure(__dirname + '/views', {
   express: app
 });
 
-var letters = 'abcdefghijklmnopqrstuvwxyz'.split('');
-    letters.push('0-9');
+var letters = 'abcdefghijklmnopqrstuvwxyz'.split('').concat('0-9');
 
 env.addGlobal('letters', letters);
 env.addGlobal('siteTitle', 'A-Z of TV Programmes');
