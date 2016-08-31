@@ -15,28 +15,35 @@ router.get('/:letter', function(req, res) {
       requestUrl = baseUrl + letter + '/programmes' + page;
 
   request(requestUrl, function(err, response, body) {
-    var responseData;
+    var responseData = {
+      siteTitle: 'A-Z of TV Programmes',
+      letters: 'abcdefghijklmnopqrstuvwxyz'.split('').concat('0-9'),
+      recipe: {
+        small: '192x108',
+        medium: '406x228',
+        large: '560x315'
+      }
+    }
 
-    if (err) responseData = { error: err };
+    if (err) Object.assign(responseData, { error: err });
     else {
       var data = JSON.parse(body).atoz_programmes;
-      var pages = data.count > data.per_page ? Math.ceil(data.count / data.per_page) : 1;
+      var pages = countPages(data);
 
-      responseData = {
+      Object.assign(responseData, {
         currentLetter: letter,
         currentPage: req.query.page,
         data: data,
-        pages: pages,
-        recipe: {
-          small: '192x108',
-          medium: '406x228',
-          large: '560x315'
-        }
-      };
+        pages: pages
+      });
     }
 
     res.render('programmes/index', responseData);
   });
 });
+
+function countPages(data){
+  return data.count > data.per_page ? Math.ceil(data.count / data.per_page) : 1;
+}
 
 module.exports = router;

@@ -7,15 +7,10 @@ var port = process.env.NODE_ENV === 'test' ? 3000 : 8080;
 
 app.set('view engine', 'njk');
 
-var env = nunjucks.configure(__dirname + '/views', {
+var nunjucksEnv = nunjucks.configure(__dirname + '/views', {
   watch: true,
   express: app
 });
-
-var letters = 'abcdefghijklmnopqrstuvwxyz'.split('').concat('0-9');
-
-env.addGlobal('letters', letters);
-env.addGlobal('siteTitle', 'A-Z of TV Programmes');
 
 app.use(sass({
   src: __dirname + '/sass',
